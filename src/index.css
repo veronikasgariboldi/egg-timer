@@ -1,0 +1,226 @@
+body {
+    width: 530px;
+    height: 580px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #FFE66F;
+     /* Yellow outline */
+    box-sizing: content-box; 
+}
+
+header {
+    margin-top: 19px;
+    margin-left: 12px;
+    margin-right: 28px;
+    margin-bottom: 9px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 510px;
+    padding: 0 20px; /* Adjust padding as needed */
+}
+
+header h2 {
+    width: 302px;
+    height: 56px;
+    color: #D78F61;
+    font-family: "Pixelify Sans";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0; /* Remove default margin */
+}
+
+header h2 code{
+    color: #D78F61;
+    font-family: "Pixelify Sans";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.shrink-close-icons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.start-container {
+    display: flex;
+    width: 510px;
+    height: 510px;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 22px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    gap: 57px;
+    flex-shrink: 0;
+    background: url('../Images/clouds.png') lightgray 50% / cover no-repeat;
+    
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Push h2 and icons to opposite sides */
+    align-items: center; /* Vertically center the items */
+    width: 100%; /* Ensure it takes the full width */
+}
+
+main .start-container h1{
+    display: flex;
+    margin-bottom: 10px;
+    width: 360px;
+    height: 115px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #543F1F;
+    text-align: center;
+    font-family: "Pixelify Sans";
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+main .start-container h2{
+    width: 500px;
+    height: 34px;
+    flex-shrink: 0;
+    color: #543F1F;
+    text-align: center;
+    font-family: "Pixelify Sans";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#start-btn {
+    color: #D78F61;
+    font-family: "Pixelify Sans";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: 0px;
+    display: flex;
+    width: 324px;
+    height: 81px;
+    padding: 26px 124px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    background: url('../Images/start-button.png') lightgray 50% / cover no-repeat;
+}
+
+#start-btn:hover{
+    transform: scale(1.05);
+}
+
+.wrapper {
+    width: 550px;
+    height: 650px;
+    border: 7px;
+    border-color: #D78F61;
+}
+
+/* Add these styles to your index.css file, replacing previous egg-related styles */
+
+.egg-selection-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+/* Main container for the egg options */
+.egg-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 60px; /* Increased vertical and horizontal gap */
+    width: 90%;
+    max-width: 480px;
+    margin-bottom: 0;
+}
+
+.egg-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Increased gap between image and text */
+}
+
+.egg-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s;
+    position: relative;
+}
+
+.egg-button:hover {
+    transform: scale(1.1);
+}
+
+.egg-button.selected {
+    border: 2px solid #D78F61;
+    border-radius: 8px;
+}
+
+/* Increased scaling factor for larger pixel art */
+.egg-button img {
+    transform: scale(6.0); /* Increased scaling from 5 to 6.5 */
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    margin: 5px;
+}
+
+.egg-option p {
+    margin: 8px 0 0 0; /* Increased top margin for more space */
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 24px; /* Increased font size */
+    font-weight: 400;
+    color: #543F1F;
+    text-align: center;
+}
+
+/* Adjust the header */
+.start-container h2 {
+    margin-bottom: 20px;
+    font-size: 28px; /* Match your Figma design */
+}
+
+/* Ensure the container has the right background */
+.start-container.egg-selection-container {
+    justify-content: flex-start;
+    padding: 20px 10px 0 10px;
+    background: url('../Images/clouds.png') lightgray 50% / cover no-repeat;
+}
+
+.start-container.egg-selection-container h2 {
+    margin-top: 0;
+    margin-bottom: 10px; /* Reduced margin */
+    height: auto; /* Allow height to adjust to content */
+}
+/* Make sure the cloud background covers the entire area */
+.start-container {
+    background-size: cover !important;
+}
