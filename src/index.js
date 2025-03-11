@@ -9,18 +9,29 @@ if (require('electron-squirrel-startup')) {
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 550,
-    height: 650,
+    width: 500,
+    height: 530,
+    frame: false,
+    resizable: false,
     webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
+      nodeIntegration: false,
+      contextIsolation: true,
       preload: path.join(__dirname, 'preload.js'),
     },
   });
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
-  mainWindow.webContents.openDevTools(); // Open Developer Tools
+  //mainWindow.webContents.openDevTools(); // Open Developer Tools
+
+  ipcMain.on('navigate-to', (event, file) => {
+      mainWindow.loadFile(file);
+  });
+
+  // Ensure the content inside the window doesn't zoom unexpectedly
+  mainWindow.webContents.on('did-finish-load', () => {
+    mainWindow.webContents.setZoomFactor(0.85); 
+});
 }
 
 // This method will be called when Electron has finished
@@ -52,6 +63,18 @@ ipcMain.on('navigate-to', (event, page) => {
   const mainWindow = BrowserWindow.getFocusedWindow();
   if (mainWindow) {
     mainWindow.loadFile(path.join(__dirname, page));
+  }
+});
+
+// Add this to your existing ipcMain handlers
+ipcMain.on('window-control', (event, command) => {
+  const window = BrowserWindow.getFocusedWindow();
+  if (window) {
+    if (command === 'minimize') {
+      window.minimize();
+    } else if (command === 'close') {
+      window.close();
+    }
   }
 });
 // In this file you can include the rest of your app's specific main process
