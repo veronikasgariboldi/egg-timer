@@ -118,6 +118,7 @@ main .start-container h1{
     gap: 10px;
     flex-shrink: 0;
     background: url('../Images/start-button.png') lightgray 50% / cover no-repeat;
+    image-rendering: pixelated;
 }
 
 #start-btn:hover{
@@ -129,4 +130,20 @@ main .start-container h1{
     height: 620px;
     border: 7px;
     border-color: #D78F61;
+}
+
+.shrink-icon{
+    image-rendering: pixelated;
+}
+
+.close-icon:hover{
+    transform: scale(1.1);
+}
+
+.close-icon{
+    image-rendering: pixelated;
+}
+
+.shrink-icon:hover{
+    transform: scale(1.1);
 }
