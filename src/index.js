@@ -22,7 +22,13 @@ const createWindow = () => {
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
-  //mainWindow.webContents.openDevTools(); // Open Developer Tools
+  //mainWindow.webContents.openDevTools();
+
+    // Ensure the content inside the window doesn't zoom unexpectedly
+    mainWindow.webContents.on('did-finish-load', () => {
+      mainWindow.webContents.setZoomFactor(0.85); 
+  });
+
 
   ipcMain.on('navigate', (event, filePath) => {
     if (mainWindow) {
@@ -31,11 +37,6 @@ const createWindow = () => {
       mainWindow.loadFile(fullPath).catch(err => console.error("Failed to load file:", err));
     }
   });
-
-  // Ensure the content inside the window doesn't zoom unexpectedly
-  mainWindow.webContents.on('did-finish-load', () => {
-    mainWindow.webContents.setZoomFactor(0.85); 
-});
 }
 
 // This method will be called when Electron has finished
