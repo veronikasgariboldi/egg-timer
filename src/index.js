@@ -24,7 +24,7 @@ const createWindow = () => {
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
   //mainWindow.webContents.openDevTools();
 
-    // Ensure the content inside the window doesn't zoom unexpectedly
+    // Ensure the content inside the window doesn't zoom unexpectedly 0.85
     mainWindow.webContents.on('did-finish-load', () => {
       mainWindow.webContents.setZoomFactor(0.85); 
   });

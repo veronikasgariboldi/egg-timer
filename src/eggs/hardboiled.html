@@ -3,21 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <title>Egg Timer</title>
-    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="./eggs.css" />
     
     <script defer src="../renderer.js"></script>
   </head>
   <body>
-    <h1>Timer</h1>
-    <p><span id="timer">7:00</span></p>
+    <div class="wrapper">
+      <header>
+        <div class="header-container">
+          <h2>Egg Timer <code>&lt;3</code></h2>
+          <div class="shrink-close-icons">
+            <img src="../../Images/minimize.png" alt="Shrink icon" class="shrink-icon"/>
+            <img src="../../Images/close.png" alt="Close icon" class="close-icon"/>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="timer-container">
+            <h1> Your egg is ready in... </h1>
+              <div class="animation-container">
+                <img src="../../Images/closed-egg.png" alt="closed egg" class="image">
+                <img src="../../Images/open-egg1.png" alt="Open Egg 1" class="image">
+                <img src="../../Images/open-egg2.png" alt="Open Egg 2" class="image">
+                <img src="../../Images/open-egg3.png" alt="Open Egg 3" class="image">
 
-
-    <script>
-        const eggTime = 7 * 60; // 7 minutes
-    </script>
-    <script src="timer.js"></script>
-    <div class="buttons">
-      <button onclick="location.href='../selection/selection.html'" type="button">back</button>
-  </div>
+                <img src="../../Images/open-egg2.png" alt="Open Egg 2 reverse" class="image reverse">
+                <img src="../../Images/open-egg1.png" alt="Open Egg 1 reverse" class="image reverse">                
+              </div>
+              <div class="timery-container">
+                <p><span id="timer">7:00</span></p>
+                <script>
+                    const eggTime = 7 * 60; 
+                </script>
+                <script src="timer.js"></script>
+              </div>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
