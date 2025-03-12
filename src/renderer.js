@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
   if (startButton) {
     document.getElementById('start-btn').addEventListener('click', () => {
-      window.location.href = 'selection.html';
+      window.location.href = 'selection/selection.html';
   });
   }
 
