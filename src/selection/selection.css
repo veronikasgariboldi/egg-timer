@@ -127,3 +127,19 @@ main .egg-selection-container h1{
     border: 7px;
     border-color: #D78F61;
 }
+
+.shrink-icon{
+    image-rendering: pixelated;
+}
+
+.close-icon:hover{
+    transform: scale(1.1);
+}
+
+.close-icon{
+    image-rendering: pixelated;
+}
+
+.shrink-icon:hover{
+    transform: scale(1.1);
+}

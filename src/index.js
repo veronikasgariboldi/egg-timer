@@ -77,5 +77,13 @@ ipcMain.on('window-control', (event, command) => {
     }
   }
 });
+
+ipcMain.on('window-control', (event, action) => {
+  if (action === 'quit') {
+    app.quit(); // Quit the application
+  } else if (action === 'close') {
+    BrowserWindow.getFocusedWindow().close(); // Close the window
+  }
+});
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.

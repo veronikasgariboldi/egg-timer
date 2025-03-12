@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (closeButton) {
     closeButton.addEventListener('click', function() {
-      window.electron.send('window-control', 'close');
+      window.electron.send('window-control', 'quit');
     });
   }
   
