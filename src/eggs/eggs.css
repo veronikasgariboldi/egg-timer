@@ -61,11 +61,13 @@ header h2 code{
 /* timer with main slot - text*/
 .timer-container {
     display: flex;
-    width: 510px;
-    height: 510px;
+    width: 520px;
+    height: 520px;
+    position: relative;
+    justify-content: space-between; /* Pushes timer to the bottom */
     flex-direction: column;
     align-items: center;
-    margin-right: 22px;
+    margin-right: 21px;
     margin-bottom: 20px;
     margin-left: 30px;
     flex-shrink: 0;
@@ -88,16 +90,24 @@ main .timer-container h2{
     flex-shrink: 0;
 }
 
-main .timer-container p{
-    color: #000;
-    text-align: center;
+main .timer-container h1{
+    color: #543F1F;
     font-family: "Pixelify Sans";
-    font-size: 24px;
+    font-size: 36px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     margin: 0;
     margin-top: 30px;
+}
+
+main .timer-container p{
+    color: #543F1F;
+    font-family: "Pixelify Sans";
+    font-size: 128px;
+    margin:0;
+    font-style: normal;
+    font-weight: 700;
 }
 
 .wrapper {
@@ -133,18 +143,22 @@ main .timer-container p{
 /* animation */
 
 .animation-container {
-    width: 198px; /* Adjust to your preferred size */
-    height: 270px; /* Adjust to your preferred size */
-    overflow: hidden;
+    width: 198px;
+    height: 270px;
+    flex-shrink: 0;
+    aspect-ratio: 11/15;
     position: relative;
+    margin-top: 20px;
   }
 
 .image {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 198px; /* Adjust width to fit the container */
+    height: auto;
     opacity: 0;
     z-index: 0;
+    margin: 0;
+    /*margin-left: 40px; */
     image-rendering: pixelated;
 }
 
@@ -165,3 +179,18 @@ main .timer-container p{
   /* Reverse sequence */
   .image.reverse:nth-child(5) { animation: imageCycle 6s infinite; animation-delay: 4s; }
   .image.reverse:nth-child(6) { animation: imageCycle 6s infinite; animation-delay: 5s; }
+
+
+#timer {
+    display: inline-block;
+    padding: 0;
+    padding-top: 10px;
+    margin: 0;
+    /* margin-top: 20px; Space between animation and timer */
+    font-size: 128px; /* Adjust as needed */
+    font-family: "Pixelify Sans";
+    color: #543F1F;
+    height: 128px;
+    line-height: 128px;
+    overflow: hidden;
+}

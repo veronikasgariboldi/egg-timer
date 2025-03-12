@@ -9,8 +9,8 @@ function startTimer(duration, display) {
 
         if (--timer < 0) {
             clearInterval(interval);
-            display.textContent = "Done! 🥚";
-            alert("Your egg is ready! 🍳");
+            display.textContent = "Done!";
+            alert("Your egg is ready!");
         }
     }, 1000);
 }
