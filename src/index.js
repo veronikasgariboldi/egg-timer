@@ -12,7 +12,7 @@ const createWindow = () => {
     width: 500,
     height: 530,
     frame: false,
-    resizable: true,
+    resizable: false,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
@@ -22,7 +22,7 @@ const createWindow = () => {
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
-  mainWindow.webContents.openDevTools(); // Open Developer Tools
+  //mainWindow.webContents.openDevTools(); // Open Developer Tools
 
   ipcMain.on('navigate', (event, filePath) => {
     if (mainWindow) {
@@ -31,7 +31,7 @@ const createWindow = () => {
       mainWindow.loadFile(fullPath).catch(err => console.error("Failed to load file:", err));
     }
   });
-  
+
   // Ensure the content inside the window doesn't zoom unexpectedly
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.webContents.setZoomFactor(0.85); 

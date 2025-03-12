@@ -38,21 +38,30 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (hardEggBtn) {
-    document.getElementById('hard-egg').addEventListener('click', () => {
-      window.location.href = path.join(__dirname, 'eggs', 'mediumboiled.html');
-  });
+    console.log("Hard egg button found!");
+
+    hardEggBtn.addEventListener('click', () => {
+      console.log("Hard egg button clicked! Sending navigation request...");
+      window.electron.send('navigate', '/eggs/mediumboiled.html'); 
+    });
   }
 
   if (friedEggBtn) {
-    document.getElementById('fried-egg').addEventListener('click', () => {
-      window.location.href = path.join(__dirname, 'eggs', 'hardboiled.html');
-  });
+    console.log("Fried egg button found!");
+
+    friedEggBtn.addEventListener('click', () => {
+      console.log("Fried egg button clicked! Sending navigation request...");
+      window.electron.send('navigate', '/eggs/hardboiled.html'); 
+    });
   }
 
   if (scrambledEggBtn) {
-    document.getElementById('scrambled-egg').addEventListener('click', () => {
-      window.location.href = path.join(__dirname, 'eggs', 'extrahardboiled.html');
-  });
+    console.log("scrambled egg button found!");
+
+    scrambledEggBtn.addEventListener('click', () => {
+      console.log("scrambled egg button clicked! Sending navigation request...");
+      window.electron.send('navigate', '/eggs/extrahardboiled.html'); 
+    });
   }
 });
 
@@ -77,16 +86,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function () {
   console.log("DOM fully loaded!"); // Check if script runs at all
-  
-  const softEggBtn = document.getElementById('soft-egg');
-
-  if (softEggBtn) {
-    console.log("Soft egg button found!"); // Check if button exists
-
-    softEggBtn.addEventListener('click', () => {
-      console.log("Soft egg button clicked!"); // Check if event fires
-    });
-  } else {
-    console.log("Soft egg button NOT found!");
-  }
 });
