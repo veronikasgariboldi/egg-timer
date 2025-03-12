@@ -22,12 +22,16 @@ const createWindow = () => {
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
-  //mainWindow.webContents.openDevTools(); // Open Developer Tools
+  mainWindow.webContents.openDevTools(); // Open Developer Tools
 
-  ipcMain.on('navigate-to', (event, file) => {
-      mainWindow.loadFile(file);
+  ipcMain.on('navigate', (event, filePath) => {
+    if (mainWindow) {
+      const fullPath = path.join(__dirname, filePath);
+      console.log("Loading file:", fullPath);
+      mainWindow.loadFile(fullPath).catch(err => console.error("Failed to load file:", err));
+    }
   });
-
+  
   // Ensure the content inside the window doesn't zoom unexpectedly
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.webContents.setZoomFactor(0.85); 
@@ -49,9 +53,7 @@ app.whenReady().then(() => {
   });
 });
 
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
+
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
@@ -66,7 +68,6 @@ ipcMain.on('navigate-to', (event, page) => {
   }
 });
 
-// Add this to your existing ipcMain handlers
 ipcMain.on('window-control', (event, command) => {
   const window = BrowserWindow.getFocusedWindow();
   if (window) {
@@ -85,5 +86,3 @@ ipcMain.on('window-control', (event, action) => {
     BrowserWindow.getFocusedWindow().close(); // Close the window
   }
 });
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.

@@ -29,27 +29,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Add click event listeners to each button if they exist
   if (softEggBtn) {
+    console.log("Soft egg button found!");
+
     softEggBtn.addEventListener('click', () => {
-      handleEggSelection('soft boiled', softEggBtn.getAttribute('data-time'));
+      console.log("Soft egg button clicked! Sending navigation request...");
+      window.electron.send('navigate', '/eggs/softboiled.html'); 
     });
   }
 
   if (hardEggBtn) {
-    hardEggBtn.addEventListener('click', () => {
-      handleEggSelection('hard boiled', hardEggBtn.getAttribute('data-time'));
-    });
+    document.getElementById('hard-egg').addEventListener('click', () => {
+      window.location.href = path.join(__dirname, 'eggs', 'mediumboiled.html');
+  });
   }
 
   if (friedEggBtn) {
-    friedEggBtn.addEventListener('click', () => {
-      handleEggSelection('fried', friedEggBtn.getAttribute('data-time'));
-    });
+    document.getElementById('fried-egg').addEventListener('click', () => {
+      window.location.href = path.join(__dirname, 'eggs', 'hardboiled.html');
+  });
   }
 
   if (scrambledEggBtn) {
-    scrambledEggBtn.addEventListener('click', () => {
-      handleEggSelection('scrambled', scrambledEggBtn.getAttribute('data-time'));
-    });
+    document.getElementById('scrambled-egg').addEventListener('click', () => {
+      window.location.href = path.join(__dirname, 'eggs', 'extrahardboiled.html');
+  });
   }
 });
 
@@ -69,5 +72,21 @@ document.addEventListener('DOMContentLoaded', function() {
     minimizeButton.addEventListener('click', function() {
       window.electron.send('window-control', 'minimize');
     });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  console.log("DOM fully loaded!"); // Check if script runs at all
+  
+  const softEggBtn = document.getElementById('soft-egg');
+
+  if (softEggBtn) {
+    console.log("Soft egg button found!"); // Check if button exists
+
+    softEggBtn.addEventListener('click', () => {
+      console.log("Soft egg button clicked!"); // Check if event fires
+    });
+  } else {
+    console.log("Soft egg button NOT found!");
   }
 });
