@@ -1,3 +1,4 @@
+/* body and main things */
 html, body {
     width: 100%;
     height: 100%;
@@ -17,7 +18,7 @@ body {
     margin-right: 25px;
 }
 
-
+/*header*/
 header {
     margin-top: 19px;
     margin-left: 12px;
@@ -30,6 +31,12 @@ header {
     padding: 0 20px; /* Adjust padding as needed */
 }
 
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Push h2 and icons to opposite sides */
+    align-items: center; /* Vertically center the items */
+    width: 100%; /* Ensure it takes the full width */
+}
 
 header h2 {
     width: 302px;
@@ -51,13 +58,7 @@ header h2 code{
     font-weight: 400;
     line-height: normal;
 }
-
-.shrink-close-icons {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-}
-
+/* egg selection with main slot - text*/
 .egg-selection-container {
     display: flex;
     width: 510px;
@@ -67,58 +68,35 @@ header h2 code{
     margin-right: 22px;
     margin-bottom: 20px;
     margin-left: 30px;
-    gap: 57px;
     flex-shrink: 0;
     background: url('../../Images/clouds.png') lightgray 50% / cover no-repeat;
     
 }
 
-.header-container {
-    display: flex;
-    justify-content: space-between; /* Push h2 and icons to opposite sides */
-    align-items: center; /* Vertically center the items */
-    width: 100%; /* Ensure it takes the full width */
-}
-
-main .egg-selection-container h1{
-    display: flex;
-    margin-bottom: 10px;
-    width: 360px;
-    height: 115px;
-    flex-direction: column;
-    justify-content: center;
-    flex-shrink: 0;
-    color: #543F1F;
+main .egg-selection-container h2{
+    color: #000;
     text-align: center;
-    font-family: "Pixelify Sans";
-    font-size: 64px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-#start-btn {
-    color: #D78F61;
     font-family: "Pixelify Sans";
     font-size: 32px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    border: 0px;
-    display: flex;
-    width: 324px;
-    height: 81px;
-    padding: 26px 124px;
-    margin-top: 20px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    margin-top: 26px;
+    margin-bottom: 0;
+    width: 500px;
+    height: 34px;
     flex-shrink: 0;
-    background: url('../Images/start-button.png') lightgray 50% / cover no-repeat;
 }
 
-#start-btn:hover{
-    transform: scale(1.05);
+main .egg-selection-container p{
+    color: #000;
+    text-align: center;
+    font-family: "Pixelify Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
 }
 
 .wrapper {
@@ -126,6 +104,13 @@ main .egg-selection-container h1{
     height: 620px;
     border: 7px;
     border-color: #D78F61;
+}
+
+/* shrink-close icons */
+.shrink-close-icons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
 }
 
 .shrink-icon{
@@ -142,4 +127,58 @@ main .egg-selection-container h1{
 
 .shrink-icon:hover{
     transform: scale(1.1);
+}
+
+/* eggs! */
+.egg-options{
+    display: grid;
+    width: fit-content;
+    height: 444px;
+    grid-template-columns: repeat(2, 1fr);
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    gap: 20px 85px;
+    flex-shrink: 0;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.egg-option{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.egg-button{
+    height: 166px;
+    align-self: stretch;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    background-color: transparent; /*?*/
+}
+
+.egg-button img {
+    justify-content: center;
+    image-rendering: pixelated;
+    transform: scale(4.5);
+}
+
+.egg-button:hover{
+    transform: scale(1.1);
+}
+
+#hard-egg img{
+    position: relative;
+    padding-right: 5px;
+    padding-top: 5px;
+    left: 5px; /* This centers the image horizontally */
+    transform: scale(4.5); /* Keep your existing scale transformation */ /* Add this to help with positioning */
+}
+
+#hard-egg{
+    display: flex;
+    justify-content: center; /* This centers the content horizontally */
+    align-items: center;
 }
